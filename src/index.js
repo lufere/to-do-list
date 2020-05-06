@@ -66,7 +66,7 @@ list.createTodo("Walk the dog", "Take the dog for a walk", "tomorrow", true);
 list.createTodo("Walk the dog2", "Take the dog for a walk", "tomorrow", false);
 console.table(initial.todoList);
 list.togglePriority("Walk the dog");
-list.changeDescription("Walk the dog", "Don't walk him anymore he's a bad boy");
+list.changeDescription("Walk the dog", "Don't walk him anymore he's a bad boi");
 list.changeDueDate("Walk the dog", "NEVER")
 console.table(initial.todoList);
 
