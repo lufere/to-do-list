@@ -49,7 +49,7 @@
                         Walk the dog v2
                     </h3>
                     <p class="description">
-                        Don't take him out for a walk anymore he's a bad boy 
+                        Don't take him out for a walk anymore he's a bad boy
                     </p>
                     <div class="dueDate">
                         <p>
@@ -68,7 +68,21 @@
                         </p>
                     </div>
                 </div>
-                <div class = "todo"></div>
+                <div class = "todo" id="newTodo">
+                    <form>
+                        <input type="text" id ="test" placeholder="Title">
+                        <input type="textarea" placeholder="Description">
+                        <input type="date" placeholder="Description">
+                        <div>
+                            <input type="radio" name = "priority" value="High">High Priority
+                            <input type="radio" name = "priority" value="Low">Low Priority
+                        </div>
+                        <div>
+                            <button id = "cancel" type = "button">Cancel</button>
+                            <button id = "createTodo" type="button">Create</button>
+                        </div>
+                    </form>
+                </div>
                 <!-- <p class = "title">Walk the dog2</p> -->
             </div>
         </main>
