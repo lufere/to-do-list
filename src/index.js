@@ -80,7 +80,16 @@ function test(e){
 }
 var testObject ={
     title : "Dog Walk v3",
+    description : "Now generated dynamically",
+    dueDate : "Tomorrow",
+    priority: true
+};
+
+var testObject2 ={
+    title : "Dog Walk v3",
     description : "Now generated dynamically"
 };
 // document.querySelector("#one").addEventListener("click",test);
 DOM.createTodo(testObject);
+DOM.render(initial.todoList)
+
