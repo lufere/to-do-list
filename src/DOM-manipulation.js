@@ -41,10 +41,53 @@ const DOM = (()=>{
         document.querySelector("#list").appendChild(todoContainer);
     }
 
+    const inputForm = () =>{
+        let todoContainer = document.createElement("div");
+        todoContainer.classList.add("todo");
+        todoContainer.id = "newTodo";
+        let inputForm = document.createElement("form");
+        //title input
+        let titleInput = document.createElement("input");
+        titleInput.placeholder = "Title";
+        inputForm.appendChild(titleInput);
+        //description input
+        let descriptionInput = document.createElement("input");
+        descriptionInput.type = "textarea";
+        descriptionInput.placeholder = "Description";
+        inputForm.appendChild(descriptionInput);
+        //date input
+        let dateInput = document.createElement("input");
+        dateInput.type = "date";
+        inputForm.appendChild(dateInput);
+        //priority input
+        let priorityDiv = document.createElement("div");
+        let priorityInput = document.createElement("input");
+        let priorityText = document.createTextNode("High Priority?");
+        priorityInput.type = "checkbox";
+        priorityDiv.appendChild(priorityInput);
+        priorityDiv.appendChild(priorityText);
+        inputForm.appendChild(priorityDiv);
+        //buttons input
+        let buttonDiv = document.createElement("div");
+        let cancelButton = document.createElement("button");
+        let createButton = document.createElement("button");
+        cancelButton.id = "cancel";
+        createButton.id = "createTodo";
+        cancelButton.innerHTML = "Cancel";
+        createButton.innerHTML = "Create";
+        buttonDiv.appendChild(cancelButton);
+        buttonDiv.appendChild(createButton);
+        inputForm.appendChild(buttonDiv);
+        //appending the todo to the DOM
+        todoContainer.appendChild(inputForm);
+        document.querySelector("#list").appendChild(todoContainer);
+    }
+
     const render = (list) =>{
         for (let item of list){
             createTodo(item);
         }
+        inputForm();
     }
 
     const alertme = () =>{
