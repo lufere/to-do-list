@@ -1,3 +1,5 @@
+import DOM from "./DOM-manipulation";
+
 const Todo = (title, description, dueDate, priority) =>{
     let completed = false;
     return{title, description, dueDate, priority, completed}
@@ -28,7 +30,7 @@ const list = (()=>{
     }
 
     const createTodo = (title, description, dueDate, priority) =>{
-        var test = Todo(title, description, dueDate, priority)
+        var test = Todo(title, description, dueDate, priority);
         currentProject.add(test);
     }
     
@@ -76,4 +78,9 @@ function test(e){
     console.log(initial.findPosition(classTest.innerHTML));
 
 }
-document.querySelector("#one").addEventListener("click",test);
+var testObject ={
+    title : "Dog Walk v3",
+    description : "Now generated dynamically"
+};
+// document.querySelector("#one").addEventListener("click",test);
+DOM.createTodo(testObject);
