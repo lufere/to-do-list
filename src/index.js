@@ -91,5 +91,6 @@ var testObject2 ={
 };
 // document.querySelector("#one").addEventListener("click",test);
 DOM.createTodo(testObject);
-DOM.render(initial.todoList)
-
+DOM.render(initial.todoList);
+DOM.toggleFormVisibility();
+DOM.toggleFormVisibility();

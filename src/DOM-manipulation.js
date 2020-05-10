@@ -46,6 +46,7 @@ const DOM = (()=>{
         todoContainer.classList.add("todo");
         todoContainer.id = "newTodo";
         let inputForm = document.createElement("form");
+        inputForm.style.display = "flex";
         //title input
         let titleInput = document.createElement("input");
         titleInput.placeholder = "Title";
@@ -83,6 +84,21 @@ const DOM = (()=>{
         document.querySelector("#list").appendChild(todoContainer);
     }
 
+    const toggleFormVisibility = () =>{
+        let form = document.querySelector("#newTodo form");
+        console.log(form.style.display); 
+        if(form.style.display == "flex"){
+            form.style.display = "none";
+        }
+        else{
+            form.style.display = "flex";
+        }
+    }
+    const showForm = () =>{
+
+    }
+
+
     const render = (list) =>{
         for (let item of list){
             createTodo(item);
@@ -93,7 +109,7 @@ const DOM = (()=>{
     const alertme = () =>{
         alert("it works!");
     }
-    return {createTodo, alertme, render}
+    return {createTodo, alertme, render, toggleFormVisibility}
 })()
 
 export default DOM

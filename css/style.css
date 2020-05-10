@@ -24,6 +24,7 @@ body{
 
 header{
     background-color: lightblue;
+    /* background-color: #ABE7DB; */
     /* border: 2px solid red; */
     display: flex;
     justify-content: center;
@@ -35,6 +36,7 @@ h1{
     font-size: 50px;
     font-weight: bolder;
     color: rgb(255, 255, 255);
+    /* color: #FDF9DE; */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
