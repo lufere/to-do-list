@@ -76,6 +76,7 @@ function test(e){
     classTest = this.querySelector(".title");
     //console.log (classTest.innerHTML);
     console.log(initial.findPosition(classTest.innerHTML));
+    
 
 }
 var testObject ={
@@ -92,5 +93,9 @@ var testObject2 ={
 // document.querySelector("#one").addEventListener("click",test);
 DOM.createTodo(testObject);
 DOM.render(initial.todoList);
-DOM.toggleFormVisibility();
-DOM.toggleFormVisibility();
+// function toggleVisibility(e){
+//     DOM.toggleFormVisibility();
+// }
+// document.querySelector("#test").addEventListener('click', toggleVisibility);
+document.querySelector("#test").addEventListener('click',() => DOM.toggleFormVisibility());
+// DOM.toggleFormVisibility();

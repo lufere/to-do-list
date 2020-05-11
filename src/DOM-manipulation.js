@@ -45,7 +45,8 @@ const DOM = (()=>{
         let todoContainer = document.createElement("div");
         todoContainer.classList.add("todo");
         todoContainer.id = "newTodo";
-        let inputForm = document.createElement("form");
+        let inputForm = document.createElement("div");
+        inputForm.id = "newTodoForm";
         inputForm.style.display = "flex";
         //title input
         let titleInput = document.createElement("input");
@@ -79,8 +80,19 @@ const DOM = (()=>{
         buttonDiv.appendChild(cancelButton);
         buttonDiv.appendChild(createButton);
         inputForm.appendChild(buttonDiv);
-        //appending the todo to the DOM
         todoContainer.appendChild(inputForm);
+        //creating the show form button
+        let addFormButton = document.createElement("div");
+        addFormButton.id = "addFormButton";
+        let AddText = document.createElement("p");   
+        let AddButton = document.createElement("p");
+        AddText.innerHTML = "Add new To Do";
+        AddButton.innerHTML = "+";
+        addFormButton.appendChild(AddText);
+        addFormButton.appendChild(AddButton);
+        addFormButton.style.display= "none";
+        todoContainer.appendChild(addFormButton);
+        //appending the todo to the DOM
         document.querySelector("#list").appendChild(todoContainer);
     }
 
@@ -89,15 +101,19 @@ const DOM = (()=>{
         console.log(form.style.display); 
         if(form.style.display == "flex"){
             form.style.display = "none";
+            addFormButton.style.display = "flex";
+            addFormButton.style.flexFlow = "column";
         }
         else{
             form.style.display = "flex";
+            addFormButton.style.display = "none";
         }
     }
     const showForm = () =>{
 
     }
 
+    // document.querySelector("#test").addEventListener('click', toggleFormVisibility);
 
     const render = (list) =>{
         for (let item of list){
