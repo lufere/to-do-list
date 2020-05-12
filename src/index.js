@@ -97,5 +97,6 @@ DOM.render(initial.todoList);
 //     DOM.toggleFormVisibility();
 // }
 // document.querySelector("#test").addEventListener('click', toggleVisibility);
-document.querySelector("#test").addEventListener('click',() => DOM.toggleFormVisibility());
-// DOM.toggleFormVisibility();
+document.querySelector("#cancel").addEventListener('click',() => DOM.toggleFormVisibility());
+document.querySelector("#addFormButton").addEventListener('click',() => DOM.toggleFormVisibility());
+DOM.toggleFormVisibility();

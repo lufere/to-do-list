@@ -97,16 +97,17 @@ const DOM = (()=>{
     }
 
     const toggleFormVisibility = () =>{
-        let form = document.querySelector("#newTodo form");
+        let form = document.querySelector("#newTodoForm");
+        let buttonForm = document.querySelector("#addFormButton");
         console.log(form.style.display); 
         if(form.style.display == "flex"){
             form.style.display = "none";
-            addFormButton.style.display = "flex";
-            addFormButton.style.flexFlow = "column";
+            buttonForm.style.display = "flex";
+            buttonForm.style.flexFlow = "column";
         }
         else{
             form.style.display = "flex";
-            addFormButton.style.display = "none";
+            buttonForm.style.display = "none";
         }
     }
     const showForm = () =>{
