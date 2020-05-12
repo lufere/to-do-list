@@ -50,20 +50,24 @@ const DOM = (()=>{
         inputForm.style.display = "flex";
         //title input
         let titleInput = document.createElement("input");
+        titleInput.id = "formTitle";
         titleInput.placeholder = "Title";
         inputForm.appendChild(titleInput);
         //description input
         let descriptionInput = document.createElement("input");
+        descriptionInput.id = "formDescription";
         descriptionInput.type = "textarea";
         descriptionInput.placeholder = "Description";
         inputForm.appendChild(descriptionInput);
         //date input
         let dateInput = document.createElement("input");
+        dateInput.id = "formDate";
         dateInput.type = "date";
         inputForm.appendChild(dateInput);
         //priority input
         let priorityDiv = document.createElement("div");
         let priorityInput = document.createElement("input");
+        priorityInput.id = "formPriority";
         let priorityText = document.createTextNode("High Priority?");
         priorityInput.type = "checkbox";
         priorityDiv.appendChild(priorityInput);
@@ -110,13 +114,21 @@ const DOM = (()=>{
             buttonForm.style.display = "none";
         }
     }
-    const showForm = () =>{
 
+    const getTodoValues = () =>{
+        alert("working!");
+        let title = document.querySelector("#formTitle").value;
+        let description = document.querySelector("#formDescription").value;
+        let date = document.querySelector("#formDate").value;
+        let priority = document.querySelector("#formPriority").checked;
+        return {title, description, date, priority}
+        // list.createTodo(title, description, date, priority);
     }
 
     // document.querySelector("#test").addEventListener('click', toggleFormVisibility);
 
     const render = (list) =>{
+        document.querySelector("#list").innerHTML = "";
         for (let item of list){
             createTodo(item);
         }
@@ -126,7 +138,7 @@ const DOM = (()=>{
     const alertme = () =>{
         alert("it works!");
     }
-    return {createTodo, alertme, render, toggleFormVisibility}
+    return {createTodo, alertme, render, toggleFormVisibility, getTodoValues}
 })()
 
 export default DOM

@@ -29,9 +29,15 @@ const list = (()=>{
         console.log(currentProject);
     }
 
-    const createTodo = (title, description, dueDate, priority) =>{
+    const createTodo = (todo) =>{
+        let title = todo.title;
+        let description = todo.description;
+        let dueDate = todo.date;
+        let priority = todo.priority;
         var test = Todo(title, description, dueDate, priority);
         currentProject.add(test);
+        DOM.render(initial.todoList);
+        document.querySelector("#createTodo").addEventListener('click',() => list.createTodo(DOM.getTodoValues()));
     }
     
     const removeTodo = (position) =>{
@@ -64,20 +70,18 @@ const list = (()=>{
 
 const initial = Project("default", "yellow");
 list.setProject(initial);
-list.createTodo("Walk the dog", "Take the dog for a walk", "tomorrow", true);
-list.createTodo("Walk the dog2", "Take the dog for a walk", "tomorrow", false);
-console.table(initial.todoList);
-list.togglePriority("Walk the dog");
-list.changeDescription("Walk the dog", "Don't walk him anymore he's a bad boi");
-list.changeDueDate("Walk the dog", "NEVER")
-console.table(initial.todoList);
+// list.createTodo("Walk the dog", "Take the dog for a walk", "tomorrow", true);
+// list.createTodo("Walk the dog2", "Take the dog for a walk", "tomorrow", false);
+// console.table(initial.todoList);
+// list.togglePriority("Walk the dog");
+// list.changeDescription("Walk the dog", "Don't walk him anymore he's a bad boi");
+// list.changeDueDate("Walk the dog", "NEVER")
+// console.table(initial.todoList);
 
 function test(e){
     classTest = this.querySelector(".title");
     //console.log (classTest.innerHTML);
     console.log(initial.findPosition(classTest.innerHTML));
-    
-
 }
 var testObject ={
     title : "Dog Walk v3",
@@ -90,13 +94,9 @@ var testObject2 ={
     title : "Dog Walk v3",
     description : "Now generated dynamically"
 };
-// document.querySelector("#one").addEventListener("click",test);
 DOM.createTodo(testObject);
 DOM.render(initial.todoList);
-// function toggleVisibility(e){
-//     DOM.toggleFormVisibility();
-// }
-// document.querySelector("#test").addEventListener('click', toggleVisibility);
+document.querySelector("#createTodo").addEventListener('click',() => list.createTodo(DOM.getTodoValues()));
 document.querySelector("#cancel").addEventListener('click',() => DOM.toggleFormVisibility());
 document.querySelector("#addFormButton").addEventListener('click',() => DOM.toggleFormVisibility());
 DOM.toggleFormVisibility();
