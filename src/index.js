@@ -37,7 +37,7 @@ const list = (()=>{
         var test = Todo(title, description, dueDate, priority);
         currentProject.add(test);
         DOM.render(initial.todoList);
-        document.querySelector("#createTodo").addEventListener('click',() => list.createTodo(DOM.getTodoValues()));
+        setListeners();
     }
     
     const removeTodo = (position) =>{
@@ -68,6 +68,12 @@ const list = (()=>{
 
 })()
 
+function setListeners(){
+    document.querySelector("#createTodo").addEventListener('click',() => list.createTodo(DOM.getTodoValues()));
+    document.querySelector("#cancel").addEventListener('click',() => DOM.toggleFormVisibility());
+    document.querySelector("#addFormButton").addEventListener('click',() => DOM.toggleFormVisibility());
+}
+
 const initial = Project("default", "yellow");
 list.setProject(initial);
 // list.createTodo("Walk the dog", "Take the dog for a walk", "tomorrow", true);
@@ -96,7 +102,6 @@ var testObject2 ={
 };
 DOM.createTodo(testObject);
 DOM.render(initial.todoList);
-document.querySelector("#createTodo").addEventListener('click',() => list.createTodo(DOM.getTodoValues()));
-document.querySelector("#cancel").addEventListener('click',() => DOM.toggleFormVisibility());
-document.querySelector("#addFormButton").addEventListener('click',() => DOM.toggleFormVisibility());
+setListeners();
+
 DOM.toggleFormVisibility();

@@ -32,11 +32,23 @@ const DOM = (()=>{
         else priorityValue.innerHTML = "Low"; 
         priority.appendChild(priorityTitle);
         priority.appendChild(priorityValue);
+        //actions creation
+        let actions = document.createElement("div");
+        actions.classList.add("actions");
+        let completedBtn = document.createElement("button");
+        completedBtn.classList.add("completed");
+        completedBtn.innerHTML = "✔️";
+        let deleteBtn = document.createElement("button");
+        deleteBtn.classList.add("delete");
+        deleteBtn.innerHTML = "❌";
+        actions.appendChild(completedBtn);
+        actions.appendChild(deleteBtn);
         //apending all sections to the todo div
         todoContainer.appendChild(title);
         todoContainer.appendChild(description);
         todoContainer.appendChild(dueDate);
         todoContainer.appendChild(priority);
+        todoContainer.appendChild(actions);
         //appending the todo to the DOM
         document.querySelector("#list").appendChild(todoContainer);
     }
@@ -116,7 +128,6 @@ const DOM = (()=>{
     }
 
     const getTodoValues = () =>{
-        alert("working!");
         let title = document.querySelector("#formTitle").value;
         let description = document.querySelector("#formDescription").value;
         let date = document.querySelector("#formDate").value;
@@ -127,13 +138,19 @@ const DOM = (()=>{
 
     // document.querySelector("#test").addEventListener('click', toggleFormVisibility);
 
-    const render = (list) =>{
+    const render = (project) =>{
         document.querySelector("#list").innerHTML = "";
-        for (let item of list){
+        for (let item of project){
             createTodo(item);
         }
         inputForm();
     }
+    
+    // const setListeners = () =>{
+    //     document.querySelector("#createTodo").addEventListener('click',() => list.createTodo(getTodoValues()));
+    //     document.querySelector("#cancel").addEventListener('click',() => toggleFormVisibility());
+    //     document.querySelector("#addFormButton").addEventListener('click',() => toggleFormVisibility());
+    // }
 
     const alertme = () =>{
         alert("it works!");
