@@ -1,3 +1,5 @@
+import list from "./index";
+
 const DOM = (()=>{
     const createTodo = (todo) =>{
         let todoContainer = document.createElement("div");
@@ -115,7 +117,6 @@ const DOM = (()=>{
     const toggleFormVisibility = () =>{
         let form = document.querySelector("#newTodoForm");
         let buttonForm = document.querySelector("#addFormButton");
-        console.log(form.style.display); 
         if(form.style.display == "flex"){
             form.style.display = "none";
             buttonForm.style.display = "flex";
@@ -144,6 +145,7 @@ const DOM = (()=>{
             createTodo(item);
         }
         inputForm();
+        // list.setListeners();
     }
     
     // const setListeners = () =>{
