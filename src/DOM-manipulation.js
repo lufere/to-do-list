@@ -27,6 +27,7 @@ const DOM = (()=>{
         let priorityTitle = document.createElement("p");
         priorityTitle.innerHTML = "Priority";
         let priorityValue = document.createElement("p");
+        priorityValue.classList.add("currentPriority");
         if (todo.priority){ 
             todoContainer.classList.add("high");
             priorityValue.innerHTML = "High";
@@ -37,13 +38,13 @@ const DOM = (()=>{
         //actions creation
         let actions = document.createElement("div");
         actions.classList.add("actions");
-        let completedBtn = document.createElement("button");
-        completedBtn.classList.add("completed");
-        completedBtn.innerHTML = "✔️";
+        let editBtn = document.createElement("button");
+        editBtn.classList.add("edit");
+        editBtn.innerHTML = "EDIT ✔️";
         let deleteBtn = document.createElement("button");
         deleteBtn.classList.add("delete");
-        deleteBtn.innerHTML = "❌";
-        actions.appendChild(completedBtn);
+        deleteBtn.innerHTML = "DEL ❌";
+        actions.appendChild(editBtn);
         actions.appendChild(deleteBtn);
         //apending all sections to the todo div
         todoContainer.appendChild(title);
@@ -134,10 +135,7 @@ const DOM = (()=>{
         let date = document.querySelector("#formDate").value;
         let priority = document.querySelector("#formPriority").checked;
         return {title, description, date, priority}
-        // list.createTodo(title, description, date, priority);
     }
-
-    // document.querySelector("#test").addEventListener('click', toggleFormVisibility);
 
     const render = (project) =>{
         document.querySelector("#list").innerHTML = "";
@@ -147,17 +145,11 @@ const DOM = (()=>{
         inputForm();
         // list.setListeners();
     }
-    
-    // const setListeners = () =>{
-    //     document.querySelector("#createTodo").addEventListener('click',() => list.createTodo(getTodoValues()));
-    //     document.querySelector("#cancel").addEventListener('click',() => toggleFormVisibility());
-    //     document.querySelector("#addFormButton").addEventListener('click',() => toggleFormVisibility());
-    // }
 
     const alertme = () =>{
         alert("it works!");
     }
-    return {createTodo, alertme, render, toggleFormVisibility, getTodoValues}
+    return {createTodo, alertme, render, toggleFormVisibility, getTodoValues, inputForm}
 })()
 
 export default DOM

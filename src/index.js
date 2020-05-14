@@ -51,21 +51,33 @@ const list = (()=>{
         document.querySelectorAll(".delete").forEach(element => {
             element.addEventListener("click", function(){
                 let todoDiv = element.parentNode.parentNode;
-                let ident = todoDiv.querySelector(".title").innerHTML;
-                removeTodo(getProject().findPosition(ident));
+                let titleID = todoDiv.querySelector(".title").innerHTML;
+                removeTodo(getProject().findPosition(titleID));
                 setListeners();
+            })
+        });
+        document.querySelectorAll(".edit").forEach(element => {
+            element.addEventListener('click', function(){
+                // alert(element.parentNode.parentNode.querySelector(".title").innerHTML);
+                let todoDiv = element.parentNode.parentNode;
+                let title = todoDiv.querySelector(".title").innerHTML;
+                let description = todoDiv.querySelector(".description").innerHTML;
+                let dueDate = todoDiv.querySelector(".dueDate > p:nth-child(2)").innerHTML;
+                let checked = (todoDiv.querySelector(".currentPriority").innerHTML=="High")?true:false;
+                document.querySelector("#list").innerHTML = "";
+                DOM.inputForm();
+                document.querySelector("#formTitle").value = title;
+                document.querySelector("#formDescription").value = description;
+                document.querySelector("#formDate").value = dueDate;
+                document.querySelector("#formPriority").checked = checked;
             })
         });
     }
 
-    function deleteTodo(){
-        let todoDiv = element.parentNode.parentNode;
-        let ident = todoDiv.querySelector(".title").innerHTML;
-        removeTodo(getProject().findPosition(ident));
-        setListeners();
-        // initial.remove(list.getProject().findPosition(ident));
-        // DOM.render(initial.todoList);
-        // setListeners();
+    const renderEdit = (element)=>{
+        alert(element.parentNode.parentNode.querySelector(".title").innerHTML);
+        document.querySelector("#list").innerHTML = "";
+        DOM.inputForm();
     }
     
     const removeTodo = (position) =>{
@@ -93,49 +105,12 @@ const list = (()=>{
         currentProject.todoList[position].dueDate = dueDate;
     }
 
-    return{setProject, createTodo,removeTodo,toggleCompletion, changeDescription, changeDueDate, togglePriority, getProject, setListeners}
+    return{setProject, createTodo, removeTodo, toggleCompletion, changeDescription, changeDueDate, togglePriority, getProject, setListeners, renderEdit}
 
 })()
 
 const initial = Project("default", "yellow");
 list.setProject(initial);
-
-window.setListenerss = ()=>{
-    // let todoDiv = document.querySelector(".delete").parentNode.parentNode;
-    // let ident = todoDiv.querySelector(".title").innerHTML;
-    // function deleteTodo(){
-    //     list.removeTodo(list.getProject().findPosition(ident));
-    //     // initial.remove(list.getProject().findPosition(ident));
-    //     // DOM.render(initial.todoList);
-    //     // setListeners();
-    // }
-    document.querySelectorAll(".delete").forEach(element => {
-        element.addEventListener("click", deleteTodo)
-    });
-}
-
-
-// list.createTodo("Walk the dog", "Take the dog for a walk", "tomorrow", true);
-// list.createTodo("Walk the dog2", "Take the dog for a walk", "tomorrow", false);
-// console.table(initial.todoList);
-// list.togglePriority("Walk the dog");
-// list.changeDescription("Walk the dog", "Don't walk him anymore he's a bad boi");
-// list.changeDueDate("Walk the dog", "NEVER")
-// console.table(initial.todoList);
-
-function test(e){
-    classTest = this.querySelector(".title");
-    //console.log (classTest.innerHTML);
-    console.log(initial.findPosition(classTest.innerHTML));
-}
-var testObject ={
-    title : "Dog Walk v3",
-    description : "Now generated dynamically",
-    dueDate : "Tomorrow",
-    priority: true
-};
-
-// DOM.createTodo(testObject);
 DOM.render(initial.todoList);
 list.setListeners();
 DOM.toggleFormVisibility();
