@@ -132,9 +132,9 @@ const DOM = (()=>{
     const getTodoValues = () =>{
         let title = document.querySelector("#formTitle").value;
         let description = document.querySelector("#formDescription").value;
-        let date = document.querySelector("#formDate").value;
+        let dueDate = document.querySelector("#formDate").value;
         let priority = document.querySelector("#formPriority").checked;
-        return {title, description, date, priority}
+        return {title, description, dueDate, priority}
     }
 
     const render = (project) =>{

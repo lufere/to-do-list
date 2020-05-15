@@ -19,7 +19,13 @@ const Project = (title, color) =>{
 
     }
 
-    return {title, color, todoList, add, remove, findPosition}
+    const replace = (position, newTodo) => {
+        console.table(todoList);
+        todoList.splice(position, 1, newTodo);
+        console.table(todoList);
+    }
+
+    return {title, color, todoList, add, remove, findPosition, replace}
 }
 
 const list = (()=>{
@@ -36,7 +42,7 @@ const list = (()=>{
     const createTodo = (todo) =>{
         let title = todo.title;
         let description = todo.description;
-        let dueDate = todo.date;
+        let dueDate = todo.dueDate;
         let priority = todo.priority;
         var test = Todo(title, description, dueDate, priority);
         currentProject.add(test);
@@ -56,6 +62,7 @@ const list = (()=>{
                 setListeners();
             })
         });
+        
         document.querySelectorAll(".edit").forEach(element => {
             element.addEventListener('click', function(){
                 // alert(element.parentNode.parentNode.querySelector(".title").innerHTML);
@@ -77,6 +84,15 @@ const list = (()=>{
 
     const setEditListeners = () => {
         document.querySelector("#cancelEdit").addEventListener('click', function(){
+            DOM.render(currentProject.todoList);
+            setListeners();
+        })
+        
+        document.querySelector("#confirmEdit").addEventListener('click', function(){
+            let titleInput = document.querySelector("#formTitle");
+            newTodo = DOM.getTodoValues();
+            console.table(newTodo);
+            currentProject.replace(currentProject.findPosition(titleInput),newTodo);
             DOM.render(currentProject.todoList);
             setListeners();
         })
