@@ -146,10 +146,26 @@ const DOM = (()=>{
         // list.setListeners();
     }
 
+    const editForm = () => {
+        inputForm();
+        // let permaTitle = document.createElement("h3");
+        // permaTitle.innerHTML = "TEST";
+        // permaTitle.classList.add("title");
+        let titleInput = document.querySelector("#formTitle");
+        titleInput.readOnly = true;
+        let editButton = document.querySelector("#createTodo");
+        editButton.innerHTML = "Finish Edit"
+        editButton.id = "confirmEdit";
+        let cancelButton = document.querySelector("#cancel");
+        cancelButton.innerHTML = "Cancel Edit"
+        cancelButton.id = "cancelEdit";
+        // document.querySelector("#newTodo").prepend(permaTitle);
+    }
+
     const alertme = () =>{
         alert("it works!");
     }
-    return {createTodo, alertme, render, toggleFormVisibility, getTodoValues, inputForm}
+    return {createTodo, alertme, render, toggleFormVisibility, getTodoValues, inputForm, editForm}
 })()
 
 export default DOM

@@ -201,11 +201,11 @@ main{
     margin-top: 25px;
 }
 
-.edit{
+.edit, #confirmEdit{
     background-color: lightgreen;
     margin-left: 0;
 }
 
-.delete{
+.delete, #cancelEdit{
     background-color: lightpink;
 }

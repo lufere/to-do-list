@@ -65,13 +65,21 @@ const list = (()=>{
                 let dueDate = todoDiv.querySelector(".dueDate > p:nth-child(2)").innerHTML;
                 let checked = (todoDiv.querySelector(".currentPriority").innerHTML=="High")?true:false;
                 document.querySelector("#list").innerHTML = "";
-                DOM.inputForm();
+                DOM.editForm();
                 document.querySelector("#formTitle").value = title;
                 document.querySelector("#formDescription").value = description;
                 document.querySelector("#formDate").value = dueDate;
                 document.querySelector("#formPriority").checked = checked;
+                setEditListeners();
             })
         });
+    }
+
+    const setEditListeners = () => {
+        document.querySelector("#cancelEdit").addEventListener('click', function(){
+            DOM.render(currentProject.todoList);
+            setListeners();
+        })
     }
 
     const renderEdit = (element)=>{
