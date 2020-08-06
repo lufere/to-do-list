@@ -90,7 +90,7 @@ const list = (()=>{
         
         document.querySelector("#confirmEdit").addEventListener('click', function(){
             let titleInput = document.querySelector("#formTitle");
-            newTodo = DOM.getTodoValues();
+            let newTodo = DOM.getTodoValues();
             console.table(newTodo);
             currentProject.replace(currentProject.findPosition(titleInput),newTodo);
             DOM.render(currentProject.todoList);

@@ -1,4 +1,4 @@
-import list from "./index";
+// import list from "./index";
 
 const DOM = (()=>{
     const createTodo = (todo) =>{
