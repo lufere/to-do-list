@@ -1,225 +1,179 @@
 html {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    height: 100%;
-  }
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+}
 
 *, *:before, *:after {
-    -webkit-box-sizing: inherit;
-    -moz-box-sizing: inherit;
-    box-sizing: inherit;
-    }
-
-body{
-    background-color: lightyellow;
-    display: grid;
-    grid-template-columns: 1fr 7fr;
-    grid-template-rows: 100px 1fr;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    height: 100%;
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
 }
 
-header{
-    background-color: lightblue;
-    /* background-color: #ABE7DB; */
-    /* border: 2px solid red; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-column: 1 / -1;
+body {
+  background-color: lightyellow;
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-flow: column;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 100%;
 }
 
-h1{
-    font-size: 50px;
-    font-weight: bolder;
-    color: rgb(255, 255, 255);
-    /* color: #FDF9DE; */
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+header {
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vw;
+}
+header h1 {
+  font-size: 50px;
+  font-weight: bolder;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-aside{
-    /* border: 3px solid goldenrod; */
-    background-color: rgb(92, 92, 92);
-    flex: 1;
+main {
+  display: flex;
+  width: 100vw;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vw;
 }
 
-aside section{
-    /* border: 2px solid goldenrod; */
-    color: white;
-    font-weight: bold;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    cursor: pointer;
+#list {
+  background-color: whitesmoke;
+  border: 4px solid black;
+  border-radius: 30px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 40px;
+  margin: 50px 50px;
+  row-gap: 40px;
+}
+@media only screen and (max-width: 768px) {
+  #list {
+    padding: 5px;
+    margin: 0 100px;
+  }
 }
 
-aside section:first-child{
-    background-color: lightyellow;
-    border: none;
-    color: black;
+.todo {
+  background-color: #f1f1a6;
+  padding: 35px 25px;
+  border: 2px solid black;
+  flex: 0 1 300px;
+  height: 280px;
+  min-width: 250px;
+  transition: all 0.2s ease-in-out;
+}
+.todo > * {
+  margin-bottom: 10px;
+}
+.todo h3 {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-aside section:nth-child(2){
-    background-color: lightsalmon;
+.todo:hover {
+  transform: scale(1.05);
 }
 
-main{
-    display: flex;
-    /* border: 3px solid salmon; */
-    flex: 8;
-    justify-content: center;
-    align-items: center;
+#newTodoForm {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 9;
 }
 
-#list{
-    background-color: whitesmoke;
-    border: 4px solid black;
-    border-radius: 30px;
-    /* width: 1100px; */
-    width: 100%;
-    /* display:grid;
-    grid-template-columns: repeat(3,1fr); */
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 40px;
-    margin: 50px 50px;
-    column-gap: 40px;
-    row-gap: 40px;
+#newTodo {
+  padding-bottom: 5px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+#newTodo input {
+  background-color: transparent;
+  border: 2px dashed #202020;
+  text-align: center;
+  padding: 5px 0;
+}
+#newTodo input[type=textarea] {
+  height: 80px;
+  width: 100%;
+}
+#newTodo p:nth-child(2) {
+  display: flex;
+  align-items: center;
+  line-height: 0.7;
+  /* border: 2px solid red; */
+  justify-content: center;
+  text-align: center;
+  font-size: 120px;
+  color: #33ad33;
+  cursor: pointer;
+}
+#newTodo p:first-child {
+  font-weight: bolder;
+  margin-bottom: 10px;
 }
 
-.todo{
-    background-color: rgb(241, 241, 166);
-    padding: 35px 25px;
-    border: 2px solid black;
-    flex: 0 1 300px;
-    height: 280px;
-    width: 280px;
-    transition: all .2s ease-in-out;
+#newTodo button, .todo button {
+  height: 30px;
+  margin: 0 10px;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  color: #444444;
+  cursor: pointer;
+  border: 1px solid black;
 }
 
-.todo:hover{
-    transform: scale(1.05);
+#newTodo:hover {
+  transform: scale(1);
 }
 
-.todo>*{
-    margin-bottom: 10px;
+#cancel, .delete, #cancelEdit {
+  background-color: lightpink;
 }
 
-.todo h3{
-    font-size: 20px;
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 20px;
+#createTodo, .edit, #confirmEdit {
+  background-color: lightgreen;
 }
 
-.dueDate, .priority{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 20px;
+.high {
+  background-color: lightsalmon;
 }
 
-.dueDate p:first-child, .priority p:first-child{
-    font-weight: bold;
-    margin-right: 5px;
+.actions {
+  margin-top: 25px;
 }
 
-#newTodoForm{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 9;
+aside {
+  display: none;
 }
 
-#newTodo{
-    padding-bottom: 5px;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-    /* background-color: rgba(255, 138, 138, 0.815); */
+.dueDate, .priority {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-#newTodo p:nth-child(2){
-    display: flex;
-    align-items: center;
-    line-height: 0.7;
-    /* border: 2px solid red; */
-    justify-content: center;
-    text-align: center;
-    font-size: 120px;
-    color: rgb(51, 173, 51);
-    cursor: pointer;
+.dueDate p:first-child, .priority p:first-child {
+  font-weight: bold;
+  margin-right: 5px;
 }
 
-#newTodo p:first-child{
-    font-weight: bolder;
-    margin-bottom: 10px;
-}
-
-::placeholder{
-    opacity: 0.8;
-    text-align: center;
-    font-size: 20px;
-}
-
-#newTodo input{
-    background-color: transparent;
-    border: 2px dashed rgb(32, 32, 32);
-    text-align: center;
-    padding: 5px 0;
-}
-
-#newTodo input[type=textarea]{
-    height: 80px;
-    width: 100%;
-}
-
-#newTodo button, .todo button{
-    height: 30px;
-    margin: 0 10px;
-    border: none;
-    font-weight: bold;
-    font-size: 15px;
-    color: rgb(68, 68, 68);
-    cursor: pointer;
-    border: 1px solid black;
-}
-
-#newTodo:hover{
-    transform: scale(1);
-}
-
-#cancel{
-    background-color: lightpink;
-}
-
-#createTodo{
-    background-color: lightgreen;
-}
-
-
-.high{
-    background-color: lightsalmon;
-}
-
-.actions{
-    margin-top: 25px;
-}
-
-.edit, #confirmEdit{
-    background-color: lightgreen;
-    margin-left: 0;
-}
-
-.delete, #cancelEdit{
-    background-color: lightpink;
-}
+/*# sourceMappingURL=style.css.map */

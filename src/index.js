@@ -30,11 +30,17 @@ const Project = (title, color) =>{
 
 const list = (()=>{
     let currentProject;
-    const setProject = (project) =>{
-        currentProject = project;
+    let projects = [];
+    const setProject = (index) =>{
+        currentProject = projects[index];
         console.log(currentProject);
     }
 
+    const createProject = (name, color) => {
+        projects.push(Project(name, color));
+        // Project("default", "yellow");
+    }
+    
     const getProject = () =>{
         return currentProject
     }
@@ -129,7 +135,7 @@ const list = (()=>{
         currentProject.todoList[position].dueDate = dueDate;
     }
 
-    return{setProject, createTodo, removeTodo, toggleCompletion, changeDescription, changeDueDate, togglePriority, getProject, setListeners, renderEdit}
+    return{setProject, createTodo, removeTodo, toggleCompletion, changeDescription, changeDueDate, togglePriority, getProject, setListeners, renderEdit, createProject}
 
 })()
 
@@ -148,17 +154,18 @@ document.querySelector('.projectt').addEventListener("click", function(e){
     console.log(e.target.dataset.project);
     // let project = e.target.dataset.project;
     document.querySelector('body').style.backgroundColor = "lightyellow";
-    list.setProject(initial)
-    DOM.render(initial.todoList);
+    // list.setProject(initial)
+    // DOM.render(initial.todoList);
     list.setListeners();
 })
 
 // document.querySelectorAll(".project").forEach()
 
-const initial = Project("default", "yellow");
+// const initial = Project("default", "yellow");
 const second = Project("default", "yellow");
-list.setProject(initial);
-DOM.render(initial.todoList);
+list.createProject("default", "yellow")
+list.setProject(0);
+DOM.render(list.getProject().todoList);
 list.setListeners();
 DOM.toggleFormVisibility();
 
