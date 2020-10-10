@@ -21,6 +21,7 @@ const Project = (title, color) =>{
 
     const replace = (position, newTodo) => {
         console.table(todoList);
+        console.log(position);
         todoList.splice(position, 1, newTodo);
         console.table(todoList);
     }
@@ -98,7 +99,8 @@ const list = (()=>{
             let titleInput = document.querySelector("#formTitle");
             let newTodo = DOM.getTodoValues();
             console.table(newTodo);
-            currentProject.replace(currentProject.findPosition(titleInput),newTodo);
+            console.log(titleInput.value);
+            currentProject.replace(currentProject.findPosition(titleInput.value),newTodo);
             DOM.render(currentProject.todoList);
             setListeners();
         })
@@ -139,30 +141,31 @@ const list = (()=>{
 
 })()
 
-document.querySelector('.project').addEventListener("click", function(e){
-    console.log(e.target.style.backgroundColor);
-    // let project = e.target.dataset.project;
-    list.setProject(second);
-    document.querySelector('body').style.backgroundColor = "lightsalmon";
-    // list.setProject(window[project]);
-    // console.log(list.getProject);
-    DOM.render(second.todoList);
-    list.setListeners();
-})
+// document.querySelector('.project').addEventListener("click", function(e){
+//     console.log(e.target.style.backgroundColor);
+//     // let project = e.target.dataset.project;
+//     list.setProject(second);
+//     document.querySelector('body').style.backgroundColor = "lightsalmon";
+//     // list.setProject(window[project]);
+//     // console.log(list.getProject);
+//     DOM.render(second.todoList);
+//     list.setListeners();
+// })
 
-document.querySelector('.projectt').addEventListener("click", function(e){
-    console.log(e.target.dataset.project);
-    // let project = e.target.dataset.project;
-    document.querySelector('body').style.backgroundColor = "lightyellow";
-    // list.setProject(initial)
-    // DOM.render(initial.todoList);
-    list.setListeners();
-})
+// document.querySelector('.projectt').addEventListener("click", function(e){
+//     console.log(e.target.dataset.project);
+//     // let project = e.target.dataset.project;
+//     document.querySelector('body').style.backgroundColor = "lightyellow";
+//     // list.setProject(initial)
+//     // DOM.render(initial.todoList);
+//     list.setListeners();
+// })
 
 // document.querySelectorAll(".project").forEach()
 
 // const initial = Project("default", "yellow");
-const second = Project("default", "yellow");
+// const second = Project("default", "yellow");
+
 list.createProject("default", "yellow")
 list.setProject(0);
 DOM.render(list.getProject().todoList);
