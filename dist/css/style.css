@@ -41,6 +41,7 @@ main {
   height: 100%;
   justify-content: center;
   align-items: center;
+  flex: 1 1 auto;
 }
 
 #list {
@@ -51,16 +52,10 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 40px;
+  padding: 30px;
   margin: 50px 100px;
   column-gap: 40px;
   row-gap: 40px;
-}
-@media only screen and (max-width: 768px) {
-  #list {
-    padding: 5px;
-    margin: 0 100px;
-  }
 }
 
 .todo {

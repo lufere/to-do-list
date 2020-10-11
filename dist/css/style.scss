@@ -19,6 +19,7 @@ body{
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     min-height: 100%;
+    // border: 1px solid blue;
 }
 
 header{
@@ -44,6 +45,7 @@ main{
     justify-content: center;
     align-items: center;
     // border: 1px solid red;
+    flex: 1 1 auto;
 }
 
 #list{
@@ -55,12 +57,12 @@ main{
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 40px;
+    padding: 30px;
 
-    @media only screen and (max-width: 768px) {
-        padding: 5px;
-        margin: 0 100px;
-    }
+    // @media only screen and (max-width: 768px) {
+    //     padding: 5px;
+    //     margin: 0 100px;
+    // }
     margin: 50px 100px;
     column-gap: 40px;
     row-gap: 40px;
