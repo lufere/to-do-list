@@ -78,8 +78,9 @@ const list = (()=>{
                 let description = todoDiv.querySelector(".description").innerHTML;
                 let dueDate = todoDiv.querySelector(".dueDate > p:nth-child(2)").innerHTML;
                 let checked = (todoDiv.querySelector(".currentPriority").innerHTML=="High")?true:false;
-                document.querySelector("#list").innerHTML = "";
-                DOM.editForm();
+                // document.querySelector("#list").innerHTML = "";
+                let pos = getProject().findPosition(title);
+                DOM.editForm(currentProject.todoList, pos);
                 document.querySelector("#formTitle").value = title;
                 document.querySelector("#formDescription").value = description;
                 document.querySelector("#formDate").value = dueDate;
